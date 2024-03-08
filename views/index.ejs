@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Holidays</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+
+    <div class="row d-flex justify-content-center mt-100 mb-100">
+                        
+                                  
+        <div class="col-lg-6">
+
+           <% if (locals.dataForEJS) { %>
+
+            
+           
+           <div class="card">
+               <div class="card-body text-center">
+                   <h4 class="card-title m-b-0">Public Holidays in <%= countryFullName %> <%= new Date().getFullYear() %></h4>
+               </div>
+               <ul class="list-style-none">
+                    <% for (var i = 0; i < dataForEJS.length; i++) {%>
+
+                    
+                        <li class="d-flex no-block card-body border-top">
+                            <i class="fa fa-check-circle w-30px m-t-5"></i>
+                            <div>
+                                <p><%= dataForEJS[i].localName %></p>
+                                <!-- <a href="#" class="m-b-0 font-medium p-0" data-abc="true"><%= dataForEJS[i].localName %></a> -->
+                                <span class="text-muted"><%= dataForEJS[i].counties %> </span>
+                            </div>
+                            <div class="ml-auto">
+                                <div class="tetx-right">
+                                    <h5 class="text-muted m-b-0"><%= dataForEJS[i].date.slice(-2) %></h5>
+                                <% if (dataForEJS[i].date.slice(5, -3) === "01") { %>
+                                    <span class="text-muted font-16">JAN</span>
+
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "02") { %>
+                                    <span class="text-muted font-16">FEB</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "03") { %>
+                                    <span class="text-muted font-16">MAR</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "04") { %>
+                                    <span class="text-muted font-16">APR</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "05") { %>
+                                    <span class="text-muted font-16">MAY</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "06") { %>
+                                    <span class="text-muted font-16">JUN</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "07") { %>
+                                    <span class="text-muted font-16">JUL</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "08") { %>
+                                    <span class="text-muted font-16">AUG</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "09") { %>
+                                    <span class="text-muted font-16">SEP</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "10") { %>
+                                    <span class="text-muted font-16">OCT</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "11") { %>
+                                    <span class="text-muted font-16">NOV</span>
+                                <% } else if (dataForEJS[i].date.slice(5, -3) === "12") { %>
+                                    <span class="text-muted font-16">DEC</span>
+                                
+                               <% }%>
+                                
+                                </div>
+                            </div>
+                        </li>
+                    <% } %>
+
+                   <!-- <li class="d-flex no-block card-body border-top">
+                       <i class="fa fa-gift w-30px m-t-5"></i>
+                       <div>
+                           <a href="#" class="m-b-0 font-medium p-0" data-abc="true">Congratulation to AAA For new investment</a>
+                           <span class="text-muted">AAA has invested $2M in MMM. we are happy to working forward with AAA.</span>
+                       </div>
+                       <div class="ml-auto">
+                           <div class="tetx-right">
+                               <h5 class="text-muted m-b-0">11</h5>
+                               <span class="text-muted font-16">MAR</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li class="d-flex no-block card-body border-top">
+                       <i class="fa fa-plus w-30px m-t-5"></i>
+                       <div>
+                           <a href="#" class="m-b-0 font-medium p-0" data-abc="true">Hiring Android Developers</a>
+                           <span class="text-muted">We are hiring android developers to expend our mobile development team.</span>
+                       </div>
+                       <div class="ml-auto">
+                           <div class="tetx-right">
+                               <h5 class="text-muted m-b-0">19</h5>
+                               <span class="text-muted font-16">APR</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li class="d-flex no-block card-body border-top">
+                       <i class="fa fa-leaf w-30px m-t-5"></i>
+                       <div>
+                           <a href="#" class="m-b-0 font-medium p-0" data-abc="true">Anounced New CEO</a>
+                           <span class="text-muted">We announced John kendey as new CEO of the company.</span>
+                       </div>
+                       <div class="ml-auto">
+                           <div class="tetx-right">
+                               <h5 class="text-muted m-b-0">20</h5>
+                               <span class="text-muted font-16">JUN</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li class="d-flex no-block card-body border-top">
+                       <i class="fa fa-question-circle w-30px m-t-5"></i>
+                       <div>
+                           <a href="#" class="m-b-0 font-medium p-0" data-abc="true">New Guidelines to Employees</a>
+                           <span class="text-muted">We have realeased new guidelines to all employees</span>
+                       </div>
+                       <div class="ml-auto">
+                           <div class="tetx-right">
+                               <h5 class="text-muted m-b-0">15</h5>
+                               <span class="text-muted font-16">AUG</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li class="d-flex no-block card-body border-top">
+                       <i class="fa fa-plus w-30px m-t-5"></i>
+                       <div>
+                           <a href="#" class="m-b-0 font-medium p-0" data-abc="true">Android App version 5.1 released</a>
+                           <span class="text-muted">We have realeased android app version 5.1. update now.</span>
+                       </div>
+                       <div class="ml-auto">
+                           <div class="tetx-right">
+                               <h5 class="text-muted m-b-0">19</h5>
+                               <span class="text-muted font-16">OCT</span>
+                           </div>
+                       </div>
+                    </li> -->
+
+                </ul>
+            </div>
+            <% } else { %>
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4 class="card-title m-b-0">Public Holidays in country <%= new Date().getFullYear() %></h4>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="card-body text-center" style="display: flex; justify-content: center;">
+                        <form action="/publicHolidays" method="POST"  >
+                            <button type="submit" value="UA" name="country" class="buttons">
+                                <div class="col-4 col-md-3 col-lg-2 text-center mb-3" style="min-width:100px">
+                                    <a class="d-block mb-2">
+                                        <img width="60" height="60" src="/images/ua.svg" alt="UA" title="UA">
+                                    </a>
+                                    <p>Ukraine</p>
+                                </div>
+                                <input type="hidden" name="countryFullName" value="Ukraine" />
+                            </button>
+                        </form>   
+                        <form action="/publicHolidays" method="POST"  >
+                            <button type="submit" value="CA" name="country" class="buttons">
+                                <div class="col-4 col-md-3 col-lg-2 text-center mb-3" style="min-width:100px">
+                                    <a class="d-block mb-2" href="/publicHolidays">
+                                        <img width="60" height="60" src="/images/ca.svg" alt="CA" title="CA">
+                                    </a>
+                                    <p>Canada</p>
+                                </div>
+                                <input type="hidden" name="countryFullName" value="Canada" />
+                            </button>
+                        </form> 
+                        <form action="/publicHolidays" method="POST"  >
+                            <button type="submit" value="BR" name="country" class="buttons">
+                                <div class="col-4 col-md-3 col-lg-2 text-center mb-3" style="min-width:100px">
+                                    <a class="d-block mb-2" href="/publicHolidays">
+                                        <img width="60" height="60" src="/images/br.svg" alt="BR" title="BR">
+                                    </a>
+                                    <p>Brazil</p>
+                                </div>
+                                <input type="hidden" name="countryFullName" value="Brazil" />
+                            </button>
+                        </form> 
+                        <form action="/publicHolidays" method="POST"  >
+                            <button type="submit" value="GR" name="country" class="buttons">
+                                <div class="col-4 col-md-3 col-lg-2 text-center mb-3" style="min-width:100px">
+                                    <a class="d-block mb-2" href="/publicHolidays">
+                                        <img width="60" height="60" src="/images/gr.svg" alt="GR" title="GR">
+                                    </a>
+                                    <p>Greece</p>
+                                </div>
+                                <input type="hidden" name="countryFullName" value="Greece" />
+                            </button>
+                        </form>
+                        <form action="/publicHolidays" method="POST"  >
+                            <button type="submit" value="US" name="country" class="buttons">
+                                <div class="col-4 col-md-3 col-lg-2 text-center mb-3" style="min-width:100px">
+                                    <a class="d-block mb-2" href="/publicHolidays">
+                                        <img width="60" height="60" src="/images/us.svg" alt="US" title="US">
+                                    </a>
+                                    <p>United States</p>
+                                </div>
+                                <input type="hidden" name="countryFullName" value="United States" />
+                            </button>
+                        </form>
+                        <form action="/publicHolidays" method="POST"  >
+                            <button type="submit" value="FR" name="country" class="buttons">
+                                <div class="col-4 col-md-3 col-lg-2 text-center mb-3" style="min-width:100px">
+                                    <a class="d-block mb-2" href="/publicHolidays">
+                                        <img width="60" height="60" src="/images/fr.svg" alt="FR" title="FR">
+                                    </a>
+                                    <p>France</p>
+                                </div>
+                                <input type="hidden" name="countryFullName" value="France" />
+                            </button>
+                        </form>
+                        
+                    </div>
+                </div>
+
+            <% } %>
+
+        </div>
+    </div>
+       
+    
+
+    
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</body>
+</html>
+
