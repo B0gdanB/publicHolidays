@@ -28,6 +28,13 @@ body {
    border-radius: 0px;
 }
 
+.flex-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+
 .card-body {
    -webkit-box-flex: 1;
    -ms-flex: 1 1 auto;
